@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <title>Questões Ambientais</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script><!-- Canva SDKs -->
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+    }
+
+    /* Foco visível para acessibilidade */
+    :focus {
+      outline: 2px solid #facc15;
+      outline-offset: 2px;
+    }
+
+    /* Animação suave para conteúdo */
+    .content-enter {
+      animation: fadeInUp 0.4s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Transição suave de cores */
+    body, section, article, .question-btn {
+      transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gray-950 text-gray-50 flex flex-col font-sans">
+  <header class="w-full">
+   <nav class="mx-auto max-w-6xl px-4 pt-6 text-center">
+    <div class="flex items-center justify-center gap-2">
+     <svg class="w-10 h-10" viewbox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#022c22"></circle> <path d="M32 10C22 16 16 26 16 34c0 9 7 16 16 16s16-7 16-16C48 26 42 16 32 10z" fill="#22c55e"></path> <path d="M30 22c-2 3-4 6-4 10 0 4 2 8 6 10" stroke="#bbf7d0" stroke-width="2" fill="none" stroke-linecap="round"></path>
+     </svg><span id="site-title" class="text-lg font-bold text-emerald-50"> Questões Ambientais </span>
+    </div>
+   </nav>
+   <section class="mx-auto max-w-6xl px-4 pt-8 pb-6 text-center">
+    <h1 id="hero-titulo" class="text-3xl md:text-4xl font-bold text-emerald-50 mb-3">Questões Ambientais</h1>
+    <p id="hero-subtitulo" class="text-sm md:text-base text-emerald-100/90 max-w-2xl mx-auto">Selecione uma questão abaixo para conhecer mais detalhes</p>
+   </section>
+  </header>
+  <main class="flex-1 w-full"><!-- Botões das Questões -->
+   <section class="bg-emerald-900/60 border-y border-emerald-800">
+    <div class="mx-auto max-w-6xl px-4 py-6">
+     <div class="flex flex-wrap justify-center gap-3"><button type="button" class="question-btn px-5 py-3 rounded-full bg-emerald-800 border-2 border-emerald-700 text-emerald-50 font-semibold text-sm hover:bg-emerald-700 hover:border-emerald-600 transition-all focus:outline-none focus:ring-2 focus:ring-amber-300" data-question="aquecimento"> 🔥 Aquecimento Global </button> <button type="button" class="question-btn px-5 py-3 rounded-full bg-emerald-800 border-2 border-emerald-700 text-emerald-50 font-semibold text-sm hover:bg-emerald-700 hover:border-emerald-600 transition-all focus:outline-none focus:ring-2 focus:ring-amber-300" data-question="desmatamento"> 🌳 Desmatamento </button> <button type="button" class="question-btn px-5 py-3 rounded-full bg-emerald-800 border-2 border-emerald-700 text-emerald-50 font-semibold text-sm hover:bg-emerald-700 hover:border-emerald-600 transition-all focus:outline-none focus:ring-2 focus:ring-amber-300" data-question="poluicao"> 🧴 Poluição </button> <button type="button" class="question-btn px-5 py-3 rounded-full bg-emerald-800 border-2 border-emerald-700 text-emerald-50 font-semibold text-sm hover:bg-emerald-700 hover:border-emerald-600 transition-all focus:outline-none focus:ring-2 focus:ring-amber-300" data-question="agua"> 💧 Escassez de Água </button> <button type="button" class="question-btn px-5 py-3 rounded-full bg-emerald-800 border-2 border-emerald-700 text-emerald-50 font-semibold text-sm hover:bg-emerald-700 hover:border-emerald-600 transition-all focus:outline-none focus:ring-2 focus:ring-amber-300" data-question="solo"> 🏭 Degradação do Solo </button>
+     </div>
+    </div>
+   </section><!-- Área de Conteúdo Detalhado -->
+   <section class="bg-emerald-950">
+    <div class="mx-auto max-w-4xl px-4 py-10">
+     <div id="content-area" class="min-h-[400px]"><!-- Mensagem inicial -->
+      <div id="initial-message" class="text-center py-16">
+       <svg class="w-20 h-20 mx-auto mb-4 opacity-50" viewbox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="none" stroke="#a7f3d0" stroke-width="2" stroke-dasharray="4 4"></circle> <path d="M32 20v16m0 4v2" stroke="#a7f3d0" stroke-width="3" stroke-linecap="round"></path>
+       </svg>
+       <p class="text-emerald-100/70 text-lg">Clique em uma das questões acima para ver informaç��es detalhadas</p>
+      </div><!-- Conteúdo: Aquecimento Global -->
+      <article id="content-aquecimento" class="content-section hidden">
+       <div class="content-enter">
+        <div class="flex items-center gap-3 mb-4"><span class="text-4xl">🔥</span>
+         <h2 class="text-2xl md:text-3xl font-bold text-emerald-50">Aquecimento Global &amp; Mudanças Climáticas</h2>
+        </div>
+        <div class="space-y-6 text-emerald-100/90">
+         <p class="text-base md:text-lg leading-relaxed">A temperatura média global aumentou aproximadamente <strong>1,1°C</strong> desde a era pré-industrial (1850-1900). Segundo o IPCC, as emissões globais de CO₂ atingiram <strong>37,4 bilhões de toneladas</strong> em 2022, sendo os combustíveis fósseis responsáveis por cerca de <strong>75% das emissões</strong> de gases de efeito estufa.</p>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Dados Alarmantes</h3>
+          <ul class="space-y-3 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>410 ppm de CO₂ na atmosfera</strong> - Este é o maior nível de concentração de dióxido de carbono registrado nos últimos 800 mil anos. Antes da Revolução Industrial, esse valor era de apenas 280 ppm.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>Nível do mar subiu 21-24 cm desde 1880</strong> - O aquecimento dos oceanos e o derretimento das geleiras causam a expansão térmica da água, ameaçando cidades costeiras e ilhas inteiras.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>Geleiras perderam 267 bilhões de toneladas de gelo por ano</strong> (1994-2017) - Essa perda acelerada contribui diretamente para o aumento do nível dos oceanos e afeta o abastecimento de água de milhões de pessoas.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>Ártico perdeu 13% de gelo por década desde 1979</strong> - O gelo marinho do Ártico está desaparecendo rapidamente, afetando ecossistemas inteiros e acelerando o aquecimento global.</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Consequências Reais</h3>
+          <ul class="space-y-3 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>70 mil mortes na Europa em 2003</strong> - A onda de calor extremo daquele verão mostrou como o aquecimento global afeta diretamente a saúde humana, especialmente de idosos e crianças.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>200 milhões de pessoas afetadas por ano</strong> - Furacões, enchentes, secas e outros eventos climáticos extremos estão se tornando mais frequentes e intensos, deslocando populações inteiras.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>Aumento de 1,5-2°C até 2050</strong> - Se não reduzirmos drasticamente as emissões, ultrapassaremos o limite seguro estabelecido pelo Acordo de Paris, causando impactos irreversíveis.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>US$ 280 bilhões/ano em prejuízos</strong> - Desastres climáticos destroem infraestrutura, agricultura e economias inteiras, com custos que só aumentam a cada ano.</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">O que podemos fazer?</h3>
+          <ul class="space-y-2 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Reduzir <strong>50% das emissões</strong> até 2030 (meta do Acordo de Paris)</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Transporte sustentável pode reduzir <strong>20%</strong> das emissões urbanas</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Dieta plant-based reduz pegada de carbono em até <strong>73%</strong></span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Energias renováveis já representam <strong>29%</strong> da geração global</span></li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article><!-- Conteúdo: Desmatamento -->
+      <article id="content-desmatamento" class="content-section hidden">
+       <div class="content-enter">
+        <div class="flex items-center gap-3 mb-4"><span class="text-4xl">🌳</span>
+         <h2 class="text-2xl md:text-3xl font-bold text-emerald-50">Desmatamento &amp; Perda de Biodiversidade</h2>
+        </div>
+        <div class="space-y-6 text-emerald-100/90">
+         <p class="text-base md:text-lg leading-relaxed">O mundo perde <strong>10 milhões de hectares</strong> de floresta por ano, equivalente a <strong>27 campos de futebol por minuto</strong>. A Amazônia brasileira perdeu <strong>13.038 km²</strong> em 2021, um aumento de 22% em relação ao ano anterior. Desde 1970, já perdemos <strong>68% da vida selvagem</strong> do planeta.</p>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Dados Globais</h3>
+          <ul class="space-y-3 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>420 milhões de hectares perdidos desde 1990</strong> - Uma área maior que toda a União Europeia foi desmatada em apenas três décadas, eliminando habitats essenciais para milhões de espécies.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>Agropecuária causa 80% do desmatamento</strong> - A expansão de pastagens para gado e plantações de soja são os principais motores da destruição de florestas tropicais no mundo.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>Brasil, Indonésia e Congo concentram 60% das perdas</strong> - Estes países abrigam as maiores florestas tropicais do planeta, que estão sendo devastadas em ritmo alarmante.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>5 bilhões de toneladas de CO₂ emitidas por ano</strong> - O desmatamento não apenas destrói sumidouros de carbono, mas também libera enormes quantidades de CO₂ armazenado nas árvores.</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Impactos na Biodiversidade</h3>
+          <ul class="space-y-3 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>1 milhão de espécies ameaçadas</strong> - Segundo a ONU, estamos vivendo a sexta extinção em massa da história do planeta, desta vez causada pela ação humana.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>80% da biodiversidade terrestre nas florestas</strong> - As florestas são o lar da maioria das espécies terrestres conhecidas. Sua destruição significa a perda irreversível de vida.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>137 espécies extintas por dia</strong> - Estamos perdendo plantas, animais e insetos em um ritmo mil vezes maior que a taxa natural de extinção.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>1,6 bilhão de pessoas dependem das florestas</strong> - Comunidades indígenas e tradicionais têm suas vidas, culturas e meios de subsistência diretamente ligados às florestas.</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Soluções Efetivas</h3>
+          <ul class="space-y-2 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">��</span> <span>Reflorestamento pode capturar <strong>205 gigatoneladas</strong> de CO₂</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Certificação FSC garante manejo sustentável de <strong>200 milhões ha</strong></span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Reduzir consumo de carne bovina em <strong>50%</strong> salva florestas</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Áreas protegidas cobrem <strong>15%</strong> da terra (meta: 30% até 2030)</span></li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article><!-- Conteúdo: Poluição -->
+      <article id="content-poluicao" class="content-section hidden">
+       <div class="content-enter">
+        <div class="flex items-center gap-3 mb-4"><span class="text-4xl">🧴</span>
+         <h2 class="text-2xl md:text-3xl font-bold text-emerald-50">Poluição &amp; Geração de Resíduos</h2>
+        </div>
+        <div class="space-y-6 text-emerald-100/90">
+         <p class="text-base md:text-lg leading-relaxed">A poluição do ar causa <strong>7 milhões de mortes</strong> prematuras por ano segundo a OMS. Produzimos <strong>2,01 bilhões de toneladas</strong> de lixo anualmente, sendo <strong>380 milhões de toneladas</strong> de plástico. Apenas <strong>9%</strong> de todo plástico já produzido foi reciclado.</p>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Poluição do Ar</h3>
+          <ul class="space-y-3 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>99% da população respira ar poluído</strong> - Segundo a OMS, praticamente toda a humanidade está exposta a níveis de poluição do ar acima dos limites seguros recomendados.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>US$ 8,1 trilhões/ano em custos</strong> - A poluição do ar representa 6,1% do PIB global em gastos com saúde, perda de produtividade e mortes prematuras.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>Partículas PM2.5 matam 4,2 milhões por ano</strong> - Essas partículas microscópicas penetram profundamente nos pulmões e corrente sanguínea, causando doenças cardíacas, derrames e câncer.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>600 mil crianças mortas em 2016</strong> - As crianças são especialmente vulneráveis à poluição do ar, que afeta o desenvolvimento de seus pulmões e cérebros.</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Crise do Plástico</h3>
+          <ul class="space-y-3 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>8 milhões de toneladas nos oceanos por ano</strong> - Isso equivale a despejar um caminhão de lixo plástico no oceano a cada minuto. O plástico leva centenas de anos para se degradar.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>Mais plástico que peixes até 2050</strong> - Se continuarmos no ritmo atual, haverá mais plástico do que peixes nos oceanos em peso, transformando-os em verdadeiros lixões.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>1 milhão de aves marinhas mortas por ano</strong> - Aves confundem plástico com alimento, morrendo de fome com estômagos cheios de lixo. Tartarugas, baleias e golfinhos também são vítimas.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>Microplásticos em 83% da água potável</strong> - Partículas microscópicas de plástico já contaminam nossa água, alimentos e até o ar que respiramos, com efeitos ainda desconhecidos na saúde.</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Ações Concretas</h3>
+          <ul class="space-y-2 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Reciclagem pode reduzir emissões em <strong>700 milhões ton</strong> CO₂/ano</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Compostagem desvia <strong>30%</strong> do lixo dos aterros</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span><strong>127 países</strong> já baniram sacolas plásticas descartáveis</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Economia circular pode gerar <strong>US$ 4,5 trilhões</strong> até 2030</span></li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article><!-- Conteúdo: Água -->
+      <article id="content-agua" class="content-section hidden">
+       <div class="content-enter">
+        <div class="flex items-center gap-3 mb-4"><span class="text-4xl">💧</span>
+         <h2 class="text-2xl md:text-3xl font-bold text-emerald-50">Escassez &amp; Poluição da Água</h2>
+        </div>
+        <div class="space-y-6 text-emerald-100/90">
+         <p class="text-base md:text-lg leading-relaxed">A água é um recurso essencial para a vida, mas sua disponibilidade está cada vez mais ameaçada pelo uso excessivo, desperdício, poluição e mudanças climáticas. Milhões de pessoas já enfrentam escassez de ��gua potável, e a situação tende a piorar nas próximas décadas.</p>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Principais Causas</h3>
+          <ul class="space-y-2 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span>Uso excessivo na agricultura (70% do consumo global)</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span>Desperdício em sistemas de distribuição e uso doméstico</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span>Poluição por esgoto, agrotóxicos e resíduos industriais</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span>Mudanças climáticas alterando padrões de chuva</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Consequências</h3>
+          <ul class="space-y-2 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span>Falta de água potável para consumo humano</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span>Doenças transmitidas pela água contaminada</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span>Conflitos sociais e geopolíticos pelo acesso à água</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span>Impactos na produção de alimentos</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span>Degradação de ecossistemas aquáticos</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">O que podemos fazer?</h3>
+          <ul class="space-y-2 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Reduzir o tempo de banho e fechar torneiras ao escovar os dentes</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Reutilizar água da chuva e de lavagem</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Consertar vazamentos imediatamente</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Apoiar políticas de saneamento básico e proteção de mananciais</span></li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article><!-- Conteúdo: Solo -->
+      <article id="content-solo" class="content-section hidden">
+       <div class="content-enter">
+        <div class="flex items-center gap-3 mb-4"><span class="text-4xl">🏭</span>
+         <h2 class="text-2xl md:text-3xl font-bold text-emerald-50">Degradação do Solo &amp; Desertificação</h2>
+        </div>
+        <div class="space-y-6 text-emerald-100/90">
+         <p class="text-base md:text-lg leading-relaxed"><strong>33%</strong> dos solos do planeta estão degradados (FAO). Perdemos <strong>24 bilhões de toneladas</strong> de solo fértil por ano devido à erosão. <strong>52%</strong> das terras agrícolas já sofrem degradação moderada ou severa. A desertificação afeta <strong>3,2 bilhões de pessoas</strong> em 100 países.</p>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Dimensão do Problema</h3>
+          <ul class="space-y-3 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>12 milhões de hectares perdidos por ano</strong> - Uma área equivalente a 120 mil km² de terra fértil se transforma em deserto anualmente, incapaz de sustentar agricultura ou vida.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>Erosão reduz produtividade em até 50%</strong> - Solos degradados perdem nutrientes essenciais, exigindo cada vez mais fertilizantes químicos e produzindo alimentos menos nutritivos.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>95% dos alimentos vêm do solo</strong> - Praticamente tudo que comemos depende de solos saudáveis. Sem solo fértil, não há segurança alimentar.</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">•</span> <span><strong>1 cm de solo leva 100-1.000 anos para se formar</strong> - O solo é um recurso não renovável na escala humana. Uma vez perdido, leva séculos ou milênios para se regenerar naturalmente.</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Impactos Econômicos e Sociais</h3>
+          <ul class="space-y-3 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>US$ 10,6 trilhões em prejuízos anuais</strong> - A degradação do solo custa mais que o PIB de países inteiros, afetando agricultura, água, biodiversidade e clima.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>135 milhões de pessoas podem migrar até 2045</strong> - A desertificação força populações inteiras a abandonar suas terras, criando refugiados climáticos e conflitos por recursos.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>50 bilhões de toneladas de solo perdidas por ano</strong> - A erosão causada por práticas agrícolas inadequadas, desmatamento e mudanças climáticas está literalmente levando embora nossa base alimentar.</span></li>
+           <li class="flex gap-2"><span class="text-red-400">⚠</span> <span><strong>Redução de 30% na produção de alimentos até 2050</strong> - Com solos degradados e população crescente, enfrentaremos uma crise alimentar sem precedentes nas próximas décadas.</span></li>
+          </ul>
+         </div>
+         <div class="bg-emerald-900/50 border border-emerald-800 rounded-xl p-5">
+          <h3 class="text-lg font-semibold text-emerald-50 mb-3">Recuperação e Conservação</h3>
+          <ul class="space-y-2 text-sm md:text-base">
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Agricultura regenerativa aumenta carbono no solo em <strong>0,4%/ano</strong></span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Plantio direto reduz erosão em até <strong>90%</strong></span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Compostagem pode recuperar <strong>2 bilhões ha</strong> degradados</span></li>
+           <li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>Cada <strong>US$ 1</strong> investido retorna <strong>US$ 7-30</strong> em benefícios</span></li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="w-full border-t border-emerald-900 bg-emerald-950/95">
+   <div class="mx-auto max-w-6xl px-4 py-4 text-center text-xs md:text-sm text-emerald-100/80">
+    <p id="rodape-texto">Educação Ambiental</p>
+   </div>
+  </footer>
+  <script>
+    // Configuração padrão para edição no Canva
+    const defaultConfig = {
+      hero_titulo: "Questões Ambientais",
+      hero_subtitulo: "Selecione uma questão abaixo para conhecer mais detalhes",
+      rodape_texto: "Educação Ambiental",
+      background_color: "#0a0a0a",      // BACKGROUND - Modo escuro
+      surface_color: "#1a1a1a",         // SECONDARY_SURFACE - Modo escuro
+      text_color: "#f5f5f5",            // TEXT
+      primary_action_color: "#3b82f6",  // PRIMARY_ACTION
+      secondary_action_color: "#60a5fa",// SECONDARY_ACTION
+      font_family: "system-ui",
+      font_size: 16
+    };
+
+    // Temas de cores para cada questão ambiental
+    const questionThemes = {
+      aquecimento: {
+        background_color: "#1a0a0a",
+        surface_color: "#2d1515",
+        text_color: "#fef2f2",
+        primary_action_color: "#ef4444",
+        secondary_action_color: "#fca5a5"
+      },
+      desmatamento: {
+        background_color: "#0a1a0a",
+        surface_color: "#152d15",
+        text_color: "#f0fdf4",
+        primary_action_color: "#22c55e",
+        secondary_action_color: "#86efac"
+      },
+      poluicao: {
+        background_color: "#0f0a1a",
+        surface_color: "#1e1530",
+        text_color: "#faf5ff",
+        primary_action_color: "#a855f7",
+        secondary_action_color: "#d8b4fe"
+      },
+      agua: {
+        background_color: "#0a1419",
+        surface_color: "#15293d",
+        text_color: "#f0f9ff",
+        primary_action_color: "#3b82f6",
+        secondary_action_color: "#93c5fd"
+      },
+      solo: {
+        background_color: "#1a1410",
+        surface_color: "#2d2415",
+        text_color: "#fefce8",
+        primary_action_color: "#f59e0b",
+        secondary_action_color: "#fcd34d"
+      }
+    };
+
+    // Aplica configurações visuais com base no config
+    async function applyConfig(config) {
+      const cfg = Object.assign({}, defaultConfig, config || {});
+      const baseSize = cfg.font_size || defaultConfig.font_size;
+      const customFont = cfg.font_family || defaultConfig.font_family;
+      const fontStack = customFont + ", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+
+      // Elementos principais de texto
+      const heroTitleEl = document.getElementById("hero-titulo");
+      const heroSubtitleEl = document.getElementById("hero-subtitulo");
+      const footerTextEl = document.getElementById("rodape-texto");
+      const siteTitleEl = document.getElementById("site-title");
+
+      if (heroTitleEl) {
+        heroTitleEl.textContent = cfg.hero_titulo || defaultConfig.hero_titulo;
+        heroTitleEl.style.fontFamily = fontStack;
+        heroTitleEl.style.fontSize = (baseSize * 2) + "px";
+      }
+
+      if (heroSubtitleEl) {
+        heroSubtitleEl.textContent = cfg.hero_subtitulo || defaultConfig.hero_subtitulo;
+        heroSubtitleEl.style.fontFamily = fontStack;
+        heroSubtitleEl.style.fontSize = (baseSize * 0.95) + "px";
+      }
+
+      if (footerTextEl) {
+        footerTextEl.textContent = cfg.rodape_texto || defaultConfig.rodape_texto;
+        footerTextEl.style.fontFamily = fontStack;
+        footerTextEl.style.fontSize = (baseSize * 0.85) + "px";
+      }
+
+      if (siteTitleEl) {
+        siteTitleEl.style.fontFamily = fontStack;
+        siteTitleEl.style.fontSize = (baseSize * 1.1) + "px";
+      }
+
+      // Aplica cores
+      document.body.style.backgroundColor = cfg.background_color;
+      document.body.style.color = cfg.text_color;
+
+      // Superfícies
+      const surfaceSections = document.querySelectorAll("section.bg-emerald-900\\/60, section.bg-emerald-950");
+      surfaceSections.forEach(sec => {
+        sec.style.backgroundColor = cfg.surface_color;
+      });
+
+      // Botões
+      const buttons = document.querySelectorAll(".question-btn");
+      buttons.forEach(btn => {
+        btn.style.backgroundColor = cfg.surface_color;
+        btn.style.borderColor = cfg.secondary_action_color;
+        btn.style.color = cfg.text_color;
+        btn.style.fontFamily = fontStack;
+        btn.style.fontSize = (baseSize * 0.9) + "px";
+      });
+
+      // Tipografia geral
+      const allText = document.querySelectorAll("p, li, h2, h3, span");
+      allText.forEach(el => {
+        el.style.fontFamily = fontStack;
+      });
+    }
+
+    // Gerencia a exibição de conteúdo
+    function showContent(questionId) {
+      // Esconde todas as seções
+      const allSections = document.querySelectorAll('.content-section');
+      allSections.forEach(section => {
+        section.classList.add('hidden');
+      });
+
+      // Esconde mensagem inicial
+      const initialMessage = document.getElementById('initial-message');
+      if (initialMessage) {
+        initialMessage.classList.add('hidden');
+      }
+
+      // Mostra a seção selecionada
+      const selectedSection = document.getElementById(`content-${questionId}`);
+      if (selectedSection) {
+        selectedSection.classList.remove('hidden');
+      }
+
+      // Aplica o tema de cores da questão selecionada
+      const theme = questionThemes[questionId];
+      if (theme) {
+        applyThemeColors(theme);
+      }
+
+      // Atualiza estado visual dos botões
+      const allButtons = document.querySelectorAll('.question-btn');
+      allButtons.forEach(btn => {
+        if (btn.dataset.question === questionId) {
+          btn.style.backgroundColor = theme.primary_action_color;
+          btn.style.borderColor = theme.primary_action_color;
+          btn.style.color = "#0a0a0a";
+        } else {
+          btn.style.backgroundColor = theme.surface_color;
+          btn.style.borderColor = theme.secondary_action_color;
+          btn.style.color = theme.text_color;
+        }
+      });
+    }
+
+    // Aplica as cores do tema
+    function applyThemeColors(theme) {
+      // Aplica cores ao body
+      document.body.style.backgroundColor = theme.background_color;
+      document.body.style.color = theme.text_color;
+
+      // Aplica cores às seções
+      const surfaceSections = document.querySelectorAll("section.bg-emerald-900\\/60, section.bg-emerald-950, section.bg-gray-950");
+      surfaceSections.forEach(sec => {
+        sec.style.backgroundColor = theme.surface_color;
+      });
+
+      // Aplica cores aos cartões de conteúdo
+      const contentBoxes = document.querySelectorAll(".bg-emerald-900\\/50");
+      contentBoxes.forEach(box => {
+        box.style.backgroundColor = theme.surface_color;
+        box.style.borderColor = theme.secondary_action_color;
+      });
+
+      // Atualiza cores de texto
+      const textElements = document.querySelectorAll("p, li, h2, h3, span");
+      textElements.forEach(el => {
+        el.style.color = theme.text_color;
+      });
+    }
+
+    // Adiciona event listeners aos botões
+    function initButtons() {
+      const buttons = document.querySelectorAll('.question-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const questionId = this.dataset.question;
+          showContent(questionId);
+        });
+      });
+    }
+
+    // Inicializa Element SDK (edição no Canva)
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          await applyConfig(config);
+        },
+        mapToCapabilities: (config) => {
+          const cfg = Object.assign({}, defaultConfig, config || {});
+          return {
+            recolorables: [
+              {
+                get: () => cfg.background_color,
+                set: (value) => {
+                  cfg.background_color = value;
+                  window.elementSdk.setConfig({ background_color: value });
+                }
+              },
+              {
+                get: () => cfg.surface_color,
+                set: (value) => {
+                  cfg.surface_color = value;
+                  window.elementSdk.setConfig({ surface_color: value });
+                }
+              },
+              {
+                get: () => cfg.text_color,
+                set: (value) => {
+                  cfg.text_color = value;
+                  window.elementSdk.setConfig({ text_color: value });
+                }
+              },
+              {
+                get: () => cfg.primary_action_color,
+                set: (value) => {
+                  cfg.primary_action_color = value;
+                  window.elementSdk.setConfig({ primary_action_color: value });
+                }
+              },
+              {
+                get: () => cfg.secondary_action_color,
+                set: (value) => {
+                  cfg.secondary_action_color = value;
+                  window.elementSdk.setConfig({ secondary_action_color: value });
+                }
+              }
+            ],
+            borderables: [],
+            fontEditable: {
+              get: () => cfg.font_family,
+              set: (value) => {
+                cfg.font_family = value;
+                window.elementSdk.setConfig({ font_family: value });
+              }
+            },
+            fontSizeable: {
+              get: () => cfg.font_size,
+              set: (value) => {
+                cfg.font_size = value;
+                window.elementSdk.setConfig({ font_size: value });
+              }
+            }
+          };
+        },
+        mapToEditPanelValues: (config) => {
+          const cfg = Object.assign({}, defaultConfig, config || {});
+          return new Map([
+            ["hero_titulo", cfg.hero_titulo],
+            ["hero_subtitulo", cfg.hero_subtitulo],
+            ["rodape_texto", cfg.rodape_texto]
+          ]);
+        }
+      });
+    } else {
+      applyConfig(defaultConfig);
+    }
+
+    // Inicializações gerais
+    document.addEventListener("DOMContentLoaded", function () {
+      initButtons();
+      if (!window.elementSdk) {
+        applyConfig(defaultConfig);
+      }
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a23630742da09d1',t:'MTc2Mzc2MTY2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
